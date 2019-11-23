@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'xadmin.apps.XAdminConfig',
     'crispy_forms',
     'captcha',
+    'mdeditor',
+
 
 ]
 
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-#AUTH_USER_MODEL = 'users.UserProfile'
+AUTH_USER_MODEL = 'users.UserProfile'
 
 
 
@@ -147,3 +149,7 @@ yp_apikey = 'cf24184ba2b5be027d056edc66908003'
 # redis设置
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
+
+# markdown
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # uploads必须存在，且在项目目录下
+MEDIA_URL = '/media/'   # 你上传的文件和图片会默认存在/uploads/editor下

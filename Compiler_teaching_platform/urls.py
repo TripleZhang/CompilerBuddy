@@ -19,9 +19,23 @@ from django.conf.urls import url,include
 import xadmin
 from Compiler_teaching_platform import settings
 from django.conf.urls.static import static
+from django.views.decorators.csrf import csrf_exempt
+from apps.users.views import LoginView,LogoutView,SendSmsView,DynamicLoginView,RegisterView
+from django.views.generic import TemplateView
+
+
+
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'mdeditor/', include('mdeditor.urls')),
+    path('login/', LoginView.as_view(), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('dynamiclogin/', DynamicLoginView.as_view(), name='dynamiclogin'),
+    url(r'^captcha/', include('captcha.urls')),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    url(r'^send_sms/', csrf_exempt(SendSmsView.as_view()),name='send_sms'),
+
 
 ]
 

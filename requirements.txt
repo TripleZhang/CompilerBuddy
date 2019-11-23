@@ -1,0 +1,10 @@
+python 包：
+django ==2.2
+mysqlclient
+django-simple-captcha
+redis == 3.3.11
+
+
+#####################
+后台应用：
+redis == 5.0.5 # https://redis.io/

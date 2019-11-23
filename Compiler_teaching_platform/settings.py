@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.users.apps.UsersConfig',
+    'apps.courses.apps.CoursesConfig',
+    'apps.operation.apps.OperationConfig',
+    'xadmin.apps.XAdminConfig',
+    'crispy_forms',
+    'captcha',
+
 ]
 
 MIDDLEWARE = [

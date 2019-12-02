@@ -35,6 +35,10 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
     path('logout/', LogoutView.as_view(), name='logout'),
     url(r'^send_sms/', csrf_exempt(SendSmsView.as_view()),name='send_sms'),
+    path('test/',TemplateView.as_view(template_name='test.html'), name='test'),
+
+    # 课程相关页面
+    url(r'^course/', include(('apps.courses.urls', 'courses'), namespace='course')),
 
 
 ]

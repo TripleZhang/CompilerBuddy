@@ -1,3 +1,3 @@
-cd ./tiger/code
+cd ../tiger/code
 make
 ./a.out

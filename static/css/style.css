@@ -9117,3 +9117,8 @@ table .upload-btn {
     height:auto;
     left:auto;
 }
+
+.myownset {
+  overflow-y: auto;
+  max-height: 100px;
+}

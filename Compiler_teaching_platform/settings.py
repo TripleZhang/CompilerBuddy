@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'captcha',
     'mdeditor',
+    'markdown',
 
 
 ]
@@ -153,3 +154,8 @@ REDIS_PORT = 6379
 # markdown
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # uploads必须存在，且在项目目录下
 MEDIA_URL = '/media/'   # 你上传的文件和图片会默认存在/uploads/editor下
+# 用户相关路径
+USER_ENVIRONMENTS = os.path.join(BASE_DIR, 'user_environments/')
+
+#
+from apps.courses.markdown_extras import markdown

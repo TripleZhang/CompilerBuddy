@@ -33,7 +33,7 @@ class CourseContentView(View):
     # def post(self, request, course_id, *args, **kwargs):
 
     def files_load(self):
-        path = "/Users/zach/PycharmProjects/CompilerBuddy/tiger/code/"  # 设置路径
+        path = "./tiger/code/"  # 设置路径
         files_path = glob.glob(path + '*.c') + glob.glob(path + '*.h')
         all_files = []
         all_files_name = []

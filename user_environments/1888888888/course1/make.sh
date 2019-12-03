@@ -1,3 +1,3 @@
-cd ../course1/code
+cd $1
+make clean
 make
-./a.out

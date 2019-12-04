@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"#}
-{#          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
+    {#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"#}
+    {#          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/code.css' %}">
 
@@ -108,15 +108,12 @@
 <br>
 
 
-
 <div class='container'>
     <div class="row">
-        <div class="col-md-6 pre-scrollable" >
-{#            <div style=" overflow:scroll;row-span: 50; width:400px; height:800px;">#}
-{#                {{ content|safe }}#}
-{#            </div>#}
+        <div class="col-md-6 pre-scrollable">
             {{ content|safe }}
         </div>
+
         <div class="col-md-6">
             <div>
 
@@ -133,24 +130,48 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    {% for file_content in all_files %}
+                    {% for file_content,file_name in all_files %}
+
                         <div role="tabpanel" class="tab-pane {% ifequal forloop.counter 1 %}active{% endifequal %}"
                              id='file{{ forloop.counter }}'>
-                            {#                            <pre>{{ file_content }}</pre>#}
-                            <form role="form">
+
+                            <form role="form" id="jsStayForm">
+
                                 <div class="form-group">
-{#                                    <label for="name">文本框</label>#}
-                                    <textarea class="form-control"  rows="35">{{ file_content }}</textarea>
+                                    <input hidden name="file_name" type="text" value="{{ file_name }}">
+                                    <textarea class="form-control" name="file_content"
+                                              rows="35">{{ file_content }}
+                                    </textarea>
+                                    <p class="error company-tips" id="jsCompanyTips"></p>
+                                    <dih>
+                                        <input class="btn btn-info readonly"  type="text" id="jsStayBtn"
+                                               value="保存">
+                                        <button class="btn btn-danger" type="text" id="jsStayBtn">复原
+                                        </button>
+                                    </dih>
+
+
                                 </div>
+                                {% csrf_token %}
+
                             </form>
-
-
+                            <p></p>
                         </div>
                     {% endfor %}
+
 
                 </div>
 
             </div>
+
+            <div style="text-align:center">
+
+                <button type="button" id="runbutton" class="btn btn-primary">
+                    运行
+                </button>
+
+            </div>
+{#            <button class="btn" type="text" id="jsStayBtn" href="#">运行</button>#}
 
 
         </div>
@@ -164,21 +185,21 @@
 
 <footer>
     <div class="footer">
-         <div class="wp">
-                    <ul class="cont">
-                        <li class="logo">
-                            <a href=""><img src="{% static 'images/footlogo.png' %}" /></a>
-                        </li>
-                        <li class="code"><img src="{% static 'images/code.jpg' %}" />
-                            <p class="center">扫描关注微信</p>
-                        </li>
-                        <li class="third"><img class="fl" src="{% static 'images/tell.png' %}" />
-                            <p class="tell">33333333</p>
-                            <p class="time">周一至周日 9:00-18:00</p>
-                        </li>
-                    </ul>
+        <div class="wp">
+            <ul class="cont">
+                <li class="logo">
+                    <a href=""><img src="{% static 'images/footlogo.png' %}"/></a>
+                </li>
+                <li class="code"><img src="{% static 'images/code.jpg' %}"/>
+                    <p class="center">扫描关注微信</p>
+                </li>
+                <li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/>
+                    <p class="tell">33333333</p>
+                    <p class="time">周一至周日 9:00-18:00</p>
+                </li>
+            </ul>
 
-                </div>
+        </div>
         <p class="line"></p>
         <div class="wp clear">
             <span class="fl"> 2019 www.projectsedu.com EDUC 保留所有权利</span>
@@ -222,7 +243,38 @@
     })
 </script>
 
+<script>
+    $(function () {
+        $(document).ready(function () {
+            $('#jsStayBtn').on('click', function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    {#url: "{% url 'course:save' %}",#}
+                    url: "#",
+                    data: $('#jsStayForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            {#$('#jsStayForm')[0].reset();#}
+                            $('#jsCompanyTips').html("123");
+                            alert("保存成功")
+                        } else if (data.status == 'fail') {
+                            $('#jsCompanyTips').html(data.msg)
+                        }
+                    },
+                });
+            });
+        });
+    })
+
+</script>
+
+
+
+
 </body>
 
 </html>
+
 

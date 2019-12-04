@@ -115,7 +115,7 @@ class RunView(View):
         if course_id:
             course = Course.objects.filter(id=course_id)[0]
             course_path = course.file_path
-            user_run_dir = request.user.file_path + course_path
+            user_run_dir = BASE_DIR + request.user.file_path + course_path + 'code/'
             try:
                 result = judge(user_run_dir)
             except Exception as e:
@@ -124,10 +124,10 @@ class RunView(View):
                     'msg': 'judge函数运行失败：' + e,
                 })
 
-            if result == 1:
+            if result == 'Pass':
                 msg = '编译器运行成功'
             else:
-                msg = '编译器运行失败'
+                msg = result
             return JsonResponse({
                 'status': 'success',
                 'msg': msg,

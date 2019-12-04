@@ -1,22 +1,21 @@
-import os
 from Compiler_teaching_platform.settings import BASE_DIR
+import os
 
 def judge(dir):
     # dir = "./tiger/code"
     # 在指定文件目录make代码
-    command1 = "sh {0}make.sh ".format(BASE_DIR + dir)
-    os.system("sh {0}make.sh ".format(BASE_DIR + dir))
+    os.system("ls")
+    makePipline = os.popen("sh make.sh " + dir)
+    makeResult = makePipline.read()
     # 在指定文件目录执行可执行文件
-    pipline = os.popen("sh {0}runtiger.sh ".format(BASE_DIR + dir))
-    command2 = "sh {0}runtiger.sh ".format(BASE_DIR + dir)
+    pipline = os.popen("sh runtiger.sh " + dir)
     result = pipline.read()
-    print (result)
     # 判断是否结果是否正确
     if result == "1":
-        return 1
+        return "Pass"
     else:
-        return 0
+        return makeResult
 
 if __name__ == '__main__':
-    res = judge('../user_environments/1888888888/course1/code')
-    print('res:',res)
+    PATH = BASE_DIR+'/user_environments/1888888888/course1/code/'
+    print(judge(PATH))

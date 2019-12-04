@@ -19,7 +19,7 @@ class BaseModel(models.Model):
 
 
 class UserProfile(AbstractUser):
-    nike_name = models.CharField(max_length=50, verbose_name='昵称', default='')
+    nick_name = models.CharField(max_length=50, verbose_name='昵称', default='')
     birthday = models.DateField(verbose_name='生日', null=True, blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, verbose_name='性别', max_length=6)
     school = models.CharField(max_length=50, verbose_name='所属学校', default='')

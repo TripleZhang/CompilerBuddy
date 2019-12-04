@@ -26,6 +26,7 @@ class CourseContentView(View):
             'content': content,
             'all_files': all_files,
             'all_files_name': all_files_name,
+            'user':request.user,
         }
         return render(request, 'course.html', rendict)
 

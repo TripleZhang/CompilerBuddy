@@ -159,3 +159,5 @@ USER_ENVIRONMENTS = os.path.join(BASE_DIR, 'user_environments/')
 
 #
 from apps.courses.markdown_extras import markdown
+#
+ORIGINAL_FILE_DIR = BASE_DIR+ '/tiger'

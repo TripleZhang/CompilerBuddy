@@ -135,32 +135,35 @@
                         <div role="tabpanel" class="tab-pane {% ifequal forloop.counter 1 %}active{% endifequal %}"
                              id='file{{ forloop.counter }}'>
 
-                            <form role="form" id="jsStayForm">
+                            <form role="form" id="jsStayForm{{ forloop.counter }}">
 
                                 <div class="form-group">
                                     <input hidden name="file_name" type="text" value="{{ file_name }}">
+                                    <input hidden name="course_id" type="text" value="{{ course.id }}">
                                     <textarea class="form-control" name="file_content"
                                               rows="35">{{ file_content }}
                                     </textarea>
-                                    <p class="error company-tips" id="jsCompanyTips"></p>
-                                    <dih>
-                                        <input class="btn btn-info readonly"  type="text" id="jsStayBtn"
+                                    {#                                    <p class="error company-tips" id="jsCompanyTips"></p>#}
+                                    <div>
+                                        <input class="btn btn-info readonly" onclick="save({{ forloop.counter }})"
+                                               type="button" id="jsStayBtn"
                                                value="保存">
-                                        <button class="btn btn-danger" type="text" id="jsStayBtn">复原
-                                        </button>
-                                    </dih>
-
+                                        <input class="btn btn-danger readonly"
+                                                type=“button”
+                                                onclick="myreset('{{ file_name }}','{{ course.id }}')"
+                                                id="resetbutton" value="重置文件" >
+                                    </div>
 
                                 </div>
                                 {% csrf_token %}
 
                             </form>
-                            <p></p>
                         </div>
                     {% endfor %}
 
 
                 </div>
+
 
             </div>
 
@@ -169,9 +172,10 @@
                 <button type="button" id="runbutton" class="btn btn-primary">
                     运行
                 </button>
+                <p class="error company-tips" id="SucessRunTips"></p>
+
 
             </div>
-{#            <button class="btn" type="text" id="jsStayBtn" href="#">运行</button>#}
 
 
         </div>
@@ -244,37 +248,97 @@
 </script>
 
 <script>
-    $(function () {
-        $(document).ready(function () {
-            $('#jsStayBtn').on('click', function () {
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    {#url: "{% url 'course:save' %}",#}
-                    url: "#",
-                    data: $('#jsStayForm').serialize(),
-                    async: true,
-                    success: function (data) {
-                        if (data.status == 'success') {
-                            {#$('#jsStayForm')[0].reset();#}
-                            $('#jsCompanyTips').html("123");
-                            alert("保存成功")
-                        } else if (data.status == 'fail') {
-                            $('#jsCompanyTips').html(data.msg)
-                        }
-                    },
-                });
-            });
+
+    function save(form_id) {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{% url 'op:save' %}",
+            data: $('#jsStayForm' + form_id).serialize(),
+
+            async: true,
+            success: function (data) {
+                if (data.status == 'fail') {
+                    if (data.msg == '用户未登录') {
+                        window.location.href = "{% url 'login' %}";
+                    } else {
+                        alert(data.msg)
+                    }
+                } else if (data.status == 'success') {
+                    {#$('#jsStayForm')[0].reset();#}
+                    alert("保存成功")
+                }
+            },
         });
-    })
+    }
 
+    function run(current_elem, course_id) {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{% url 'op:run' %}",
+            data: {'course_id': course_id},
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                if (data.status == 'fail') {
+                    if (data.msg == '用户未登录') {
+                        window.location.href = "{% url 'login' %}";
+                    } else {
+                        alert(data.msg)
+                    }
+                } else if (data.status == 'success') {
+                    {#current_elem.text(data.msg)#}
+                    $('#SucessRunTips').html(data.msg)
+                    {#alert(data.msg)#}
+
+                }
+            },
+        });
+    }
+
+    $(document).ready(function () {
+        $('#runbutton').on('click', function () {
+            run($(this), {{ course.id }});
+        });
+    });
 </script>
-
-
+<script>
+    function myreset(file_name, course_id) {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{% url 'op:reset' %}",
+            data: {'course_id': course_id, 'file_name': file_name},
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                if (data.status == 'fail') {
+                    if (data.msg == '用户未登录') {
+                        window.location.href = "{% url 'login' %}";
+                    } else {
+                        alert(data.msg)
+                    }
+                } else if (data.status == 'success') {
+                    {#$('#jsStayForm')[0].reset();#}
+                    {#$('#jsCompanyTips').html("");#}
+                    {#console.info('文件重置成功')#}
+                    alert("文件重置成功");
+                    window.location.reload();
+                }
+            },
+        });
+    }
+</script>
 
 
 </body>
 
 </html>
+
 
 

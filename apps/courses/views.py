@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import View
-from django.http import JsonResponse
 from .models import Course
 import markdown
-import os
 import glob
-
-from tiger.judge import judge
-
+from Compiler_teaching_platform.settings import BASE_DIR
 
 class CourseContentView(View):
     def get(self, request, course_id, *args, **kwargs):
@@ -20,7 +16,10 @@ class CourseContentView(View):
         ])
 
         # 显示所有的.c.h文件
-        all_files, all_files_name = self.files_load()  # all_files存储所有的文件内容，all_files_name是列表，存储所有文件名
+        course_path = course.file_path + 'code/' # /course1/code/
+        user_course_path = BASE_DIR+ request.user.file_path + course_path
+        all_files, all_files_name = self.files_load(user_course_path)  # all_files存储所有的文件内容，all_files_name是列表，存储所有文件名
+        all_files = zip(all_files,all_files_name)
 
         rendict = {
             'course': course,
@@ -32,8 +31,8 @@ class CourseContentView(View):
 
     # def post(self, request, course_id, *args, **kwargs):
 
-    def files_load(self):
-        path = "./tiger/code/"  # 设置路径
+    def files_load(self,user_course_path):
+        path = user_course_path
         files_path = glob.glob(path + '*.c') + glob.glob(path + '*.h')
         all_files = []
         all_files_name = []
@@ -48,3 +47,8 @@ class CourseContentView(View):
             except IOError:
                 print('文件打开失败，%s文件不存在' % file_path)
         return all_files, all_files_name
+
+# if __name__ == '__main__':
+#     dir = '/Users/zach/PycharmProjects/CompilerBuddy/user_environments/1888888888/course1/code'
+#     print(dir)
+#     judge(dir)

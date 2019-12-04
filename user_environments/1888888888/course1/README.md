@@ -20,7 +20,7 @@ CompilerBuddy编译器判断正误模块，向web应用提供判断接口，该�
 后端代码应向该模块传入目标用户的文件路径字符串，该模块返回结果字符串。在Vue+Django的架构下，需要在Django应用的`views.py`文件中引入该模块：
 
 ```Python
-from tiger.judge import judge
+from tiger.course1.judge import judge
 ```
 
 同时，在文件中定义方法，使用judge方法，给json串相应字段赋值：

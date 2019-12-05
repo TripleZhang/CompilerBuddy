@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title> EDUC</title>
+    <!--页面标签名称-->
+    <title> 课程实践</title>
+    <!--导入css样式-->
     <link rel="stylesheet" href="{% static 'css/course_student.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
@@ -15,18 +17,16 @@
     {#          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/code.css' %}">
-
-
 </head>
 
 
 <body>
 <section class="headerwrap">
     <header>
-		<div  class=" header">
+		<div  class="header">
  			<div class="top">
 				<div class="wp">
-					<div class="fl"><p>服务电话：<b>33333333</b></p></div>
+					<div class="fl"><p>CompilerBuddy | <b>33333333</b></p></div>
 					<!--登录后跳转-->
 
                     {% if request.user.is_authenticated %}

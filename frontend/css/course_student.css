@@ -1,0 +1,75 @@
+.main_page {
+    overflow: hidden;
+    /* border: solid red; */
+    margin: 20px 20px;
+}
+
+.tutorial {
+    float: left;
+    overflow: scroll;
+    width: 650px;
+    /* border: solid red; */
+    margin: 0 10px;
+    height: 800px;
+    font-size: 20px;
+}
+
+.file_choice {
+    float: left;
+    width: 100px;
+    /* border: solid red; */
+    margin-right: 10px;
+}
+
+.code_form {
+    float: left;
+    /* border: solid red; */
+    width: 700px;
+    margin: 0 10px 10px 20px;
+}
+
+#code_editor {
+    width: 100%;
+    height: 790px;
+    font-size: 30px;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.filleditor {
+    display: block;
+    font-size: 20px;
+    border: none;
+    background: white;
+}

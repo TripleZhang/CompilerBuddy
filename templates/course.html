@@ -26,7 +26,7 @@
 		<div  class="header">
  			<div class="top">
 				<div class="wp">
-					<div class="fl"><p>CompilerBuddy | <b>33333333</b></p></div>
+					<div class="fl"><p>CompilerBuddy | <b>第一章</b></p></div>
 					<!--登录后跳转-->
 
                     {% if request.user.is_authenticated %}
@@ -58,33 +58,30 @@
 				</div>
 			</div>
 
-            <div class="middle">
-                <div class="wp">
-                    <a href="index.html"><img class="fl" src="/static/images/logo.jpg"/></a>
-                </div>
-            </div>
+{#            <div class="middle">#}
+{#                <div class="wp">#}
+{#                    <a href="index.html"><img class="fl" src="/static/images/logo.jpg"/></a>#}
+{#                </div>#}
+{#            </div>#}
 
 
-			<nav>
-				<div class="nav">
-					<div class="wp">
-						<ul>
-
-						</ul>
-					</div>
-				</div>
-			</nav>
+{#			<nav>#}
+{#				<div class="nav">#}
+{#					<div class="wp">#}
+{#						<ul>#}
+{##}
+{#						</ul>#}
+{#					</div>#}
+{#				</div>#}
+{#			</nav>#}
 
 			</div>
     </header>
 </section>
-<br>
-
-<br>
-
 
 <div class='container'>
     <div class="row">
+        {#    markdown滚动    #}
         <div class="col-md-6 pre-scrollable">
             {{ content|safe }}
         </div>
@@ -162,30 +159,30 @@
 <br>
 <br>
 
-<footer>
-    <div class="footer">
-        <div class="wp">
-            <ul class="cont">
-                <li class="logo">
-                    <a href=""><img src="{% static 'images/footlogo.png' %}"/></a>
-                </li>
-                <li class="code"><img src="{% static 'images/code.jpg' %}"/>
-                    <p class="center">扫描关注微信</p>
-                </li>
-                <li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/>
-                    <p class="tell">33333333</p>
-                    <p class="time">周一至周日 9:00-18:00</p>
-                </li>
-            </ul>
-
-        </div>
-        <p class="line"></p>
-        <div class="wp clear">
-            <span class="fl"> 2019 www.projectsedu.com EDUC 保留所有权利</span>
-            <span class="fr">copyright  2019 ICP备案证书号：京ICP备xxxxx号-1</span>
-        </div>
-    </div>
-</footer>
+{#<footer>#}
+{#    <div class="footer">#}
+{#        <div class="wp">#}
+{#            <ul class="cont">#}
+{#                <li class="logo">#}
+{#                    <a href=""><img src="{% static 'images/footlogo.png' %}"/></a>#}
+{#                </li>#}
+{#                <li class="code"><img src="{% static 'images/code.jpg' %}"/>#}
+{#                    <p class="center">扫描关注微信</p>#}
+{#                </li>#}
+{#                <li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/>#}
+{#                    <p class="tell">33333333</p>#}
+{#                    <p class="time">周一至周日 9:00-18:00</p>#}
+{#                </li>#}
+{#            </ul>#}
+{##}
+{#        </div>#}
+{#        <p class="line"></p>#}
+{#        <div class="wp clear">#}
+{#            <span class="fl"> 2019 www.projectsedu.com EDUC 保留所有权利</span>#}
+{#            <span class="fr">copyright  2019 ICP备案证书号：京ICP备xxxxx号-1</span>#}
+{#        </div>#}
+{#    </div>#}
+{#</footer>#}
 
 
 <section>

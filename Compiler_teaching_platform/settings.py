@@ -25,7 +25,7 @@ SECRET_KEY = 'u3w+o+ps8sy77phfgj!n!qm&%4%tl#%le49#$sw6ont8&6#^0z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'captcha',
     'mdeditor',
     'markdown',
+    'DjangoUeditor',
 
 
 ]

@@ -17,6 +17,7 @@ from pure_pagination import Paginator, PageNotAnInteger
 from django.contrib.auth.backends import ModelBackend
 from apps.operation.models import  UserMessage
 from django.db.models import Q
+from tools.test_new_user import copy_files
 
 
 class CustomAuth(ModelBackend):
@@ -180,6 +181,7 @@ class RegisterView(View):
             message = UserMessage(user=user, message='欢迎加入CompilerBuddy学习！')
             message.save()
             user.save()
+            copy_files('/user_environments/'+str(mobile))
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:

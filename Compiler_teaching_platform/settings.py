@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #/Users/zach/PycharmProjects/CompilerBuddy
 
 
 # Quick-start development settings - unsuitable for production
@@ -160,4 +160,4 @@ USER_ENVIRONMENTS = os.path.join(BASE_DIR, 'user_environments/')
 #
 from apps.courses.markdown_extras import markdown
 #
-ORIGINAL_FILE_DIR = BASE_DIR+ '/tiger'
+ORIGINAL_FILE_DIR = BASE_DIR+ '/tiger'  # /Users/zach/PycharmProjects/CompilerBuddy/tiger

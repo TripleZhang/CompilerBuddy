@@ -4,7 +4,7 @@ import os
 def judge(dir):
     # dir = "./tiger/code"
     # 在指定文件目录make代码
-    os.system("ls")
+    # os.system("ls")
     makePipline = os.popen("sh make.sh " + dir)
     makeResult = makePipline.read()
     # 在指定文件目录执行可执行文件

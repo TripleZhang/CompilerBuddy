@@ -176,8 +176,9 @@ class RegisterView(View):
         if regist_post_form.is_valid():
             mobile = regist_post_form.cleaned_data['mobile']
             password = regist_post_form.cleaned_data['password']
-
             user = UserProfile(username=mobile, mobile=mobile, password=password, file_path='/user_environments/'+str(mobile))
+            message = UserMessage(user=user, message='欢迎加入CompilerBuddy学习！')
+            message.save()
             user.save()
             login(request, user)
             return HttpResponseRedirect(reverse("index"))

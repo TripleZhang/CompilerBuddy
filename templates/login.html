@@ -43,7 +43,7 @@
                     <h2 class="{% if dynamic_login_tag %}{}{% else %}active{% endif %}">账号登录</h2>
                     <h2 class="{% if dynamic_login_tag %}active{% else %}{}{% endif %}">动态登录</h2>
                 </div>
-                <form class="tab-form {% if dynamic_login_tag %}hide{% else %}{}{% endif %}" action="{% url 'login' %}" method="post" autocomplete="off" id="form1">
+                <form class="tab-form {% if dynamic_login_tag %}hide{% else %}{}{% endif %}" action="{% url 'login' %}?next={{ next }}" method="post" autocomplete="off" id="form1">
                     <div class="form-group marb20 {% if login_form.errors.username %}errorput{% endif %}">
                         <input name="username" id="account_l" type="text" value="{{ login_form.username.value }}" placeholder="手机号/邮箱" />
                     </div>

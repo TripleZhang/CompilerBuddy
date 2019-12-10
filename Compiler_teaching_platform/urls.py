@@ -41,6 +41,8 @@ urlpatterns = [
     url(r'^course/', include(('apps.courses.urls', 'courses'), namespace='course')),
     # 操作
     url(r'^operation/', include(('apps.operation.urls', 'operation'), namespace='op')),
+    # 用户
+    url(r'^users/', include(('apps.users.urls', 'users'), namespace='users')),
 
 
 ]

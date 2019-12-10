@@ -30,8 +30,7 @@ class UserCourseSectionSign(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.nike_name
-
+        return self.user.nick_name
 
 class UserMessage(BaseModel):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='用户id')

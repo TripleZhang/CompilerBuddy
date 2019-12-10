@@ -3,18 +3,23 @@
 {% load static %}
 
 <head>
+    <style>
+
+
+    </style>
+
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <!--页面标签名称-->
     <title> 课程实践</title>
     <!--导入css样式-->
-    <link rel="stylesheet" href="{% static 'css/course_student.css' %}">
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+{#    <link rel="stylesheet" href="{% static 'css/course_student.css' %}">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"#}
-    {#          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/code.css' %}">
 </head>
@@ -58,26 +63,38 @@
 				</div>
 			</div>
 
-{#            <div class="middle">#}
-{#                <div class="wp">#}
-{#                    <a href="index.html"><img class="fl" src="/static/images/logo.jpg"/></a>#}
-{#                </div>#}
-{#            </div>#}
-
-
-{#			<nav>#}
-{#				<div class="nav">#}
-{#					<div class="wp">#}
-{#						<ul>#}
-{##}
-{#						</ul>#}
-{#					</div>#}
-{#				</div>#}
-{#			</nav>#}
-
-			</div>
+            {# 知识点slide bar #}
+            <div class="middle">
+                <ul class="slidebar">
+                    <script>
+                        var knowledge = new Array();
+                        knowledge[0] = "直线程序设计语言";
+                        knowledge[1] = "解释器";
+                        knowledge[2] = "符号表";
+                        knowledge[3] = "抽象语法";
+                        knowledge[4] = "树数据结构";
+                        knowledge[5] = "函数式语言";
+                        knowledge[6] = "属性文法"
+                        for(var i=0;i<knowledge.length;i++) {
+                            document.write(
+                                '<li> ' +
+                                    '<div class="knowledgebox"> ' +
+                                        '<p>' + knowledge[i] + '</p> ' +
+                                        '<button type="button" class="btn btn-default btn-sm">' +
+                                            '<span class="glyphicon glyphicon-ok"></span>' +
+                                        '</button>' +
+                                    '</div> ' +
+                                '</li>')
+                        }
+                    </script>
+                </ul>
+            </div>
+        </div>
     </header>
 </section>
+
+
+
 
 <div class='container'>
     <div class="row">

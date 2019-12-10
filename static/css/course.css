@@ -1,0 +1,47 @@
+/* course页知识点slide bar */
+.slidebar li{
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    background: #FFFFFF;
+}
+.slidebar li:nth-child(2n){
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    background: #FFFFFF;
+}
+
+.slidebar{
+    width: 90%;
+    height: 100px;
+    text-align:center;
+    margin:0 auto;
+    overflow-x: auto;
+    /*border:1px solid #999*/
+}
+.slidebar{
+    display: flex;
+}
+.slidebar li{
+    flex-shrink:0
+}
+
+/* 知识点box */
+.knowledgebox {
+    width: 90%;
+    height: 100%;
+    background: #f4f4f4;
+    border: 1px solid lightgrey;
+}
+
+.knowledgebox p {
+    padding: 15px 0;
+    text-align:center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.knowledgebox button {
+    text-align:center;
+}

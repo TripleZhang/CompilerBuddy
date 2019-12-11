@@ -1,5 +1,5 @@
 import xadmin
-from .models import CourseComment, UserCourse, UserMessage,UserCourseSectionSign
+from .models import CourseComment, UserCourse, UserMessage,UserCourseSectionSign,UserCoursePointSign
 
 
 
@@ -25,8 +25,14 @@ class UserCourseSectionSignAdmin(object):
     search_fields = ['user', 'course', 'section']
     list_filter = ['user', 'course', 'section']
 
+class UserCoursePointSignAdmin(object):
+    list_display = ['user', 'course', 'point', 'sign']
+    search_fields = ['user', 'course', 'point']
+    list_filter = ['user', 'course', 'point']
+
 
 xadmin.site.register(UserCourse, UserCourseAdmin)
 xadmin.site.register(UserMessage, UserMessageAdmin)
 xadmin.site.register(CourseComment, CourseCommentsAdmin)
 xadmin.site.register(UserCourseSectionSign, UserCourseSectionSignAdmin)
+xadmin.site.register(UserCoursePointSign, UserCoursePointSignAdmin)

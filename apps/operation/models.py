@@ -1,7 +1,7 @@
 from django.db import models
 from apps.users.models import BaseModel
 from django.contrib.auth import get_user_model
-from apps.courses.models import Course, Section
+from apps.courses.models import Course, Section,Knowledge_point
 
 UserProfile = get_user_model()
 
@@ -27,6 +27,20 @@ class UserCourseSectionSign(BaseModel):
 
     class Meta:
         verbose_name = '用户课程段落标记'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.user.nick_name
+
+
+class UserCoursePointSign(BaseModel):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='用户id')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='标记的课程')
+    point = models.ForeignKey(Knowledge_point, on_delete=models.CASCADE, verbose_name='标记的知识点')
+    # sign = models.BooleanField(verbose_name='1代表认为困难')
+
+    class Meta:
+        verbose_name = '用户课程知识点标记'
         verbose_name_plural = verbose_name
 
     def __str__(self):

@@ -1,9 +1,33 @@
 from tiger.course1.judge import judge
 from django.views.generic import View
 from django.http import JsonResponse
-from apps.courses.models import Course
+from apps.courses.models import Course, Knowledge_point
 from .forms import SaveForm, ResetForm
 from Compiler_teaching_platform.settings import BASE_DIR, ORIGINAL_FILE_DIR
+from .models import UserCoursePointSign
+
+
+class AddQuestionView(View):
+    def post(self, request, *args, **kwargs):
+        point_id = request.POST.get('point_id')
+        course_id = request.POST.get('course_id')
+        user = request.user
+        course = Course.objects.filter(id=course_id).first()
+        point = Knowledge_point.objects.filter(id=point_id).first()
+        question_record = UserCoursePointSign.objects.filter(user=user, point=point, course=course)
+        if question_record:
+            question_record.delete()
+            point.sign_num -= 1
+            point.save()
+        else:
+            question = UserCoursePointSign(user=user, point=point, course=course)
+            question.save()
+            point.sign_num += 1
+            point.save()
+        return JsonResponse({
+            'status': 'success',
+            'msg': '提问成功',
+        })
 
 
 class ResetView(View):

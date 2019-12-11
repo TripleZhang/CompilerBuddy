@@ -34,6 +34,20 @@ class Section(BaseModel):
     def __str__(self):
         return self.name
 
+class Knowledge_point(BaseModel):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE,
+                               verbose_name='课程名')  # on_delete表示课程被删掉后应该怎么做，Cascade 表示级联删除
+    name = models.CharField(max_length=100, verbose_name='知识点')
+    sign_num = models.IntegerField(verbose_name='用户标记数', default=0)
+
+    class Meta:
+        verbose_name = '知识点信息'
+        verbose_name_plural = verbose_name
+        unique_together = (('course', 'name'),)
+
+    def __str__(self):
+        return self.name
+
 # class Video(BaseModel):
 #     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 #     name = models.CharField(max_length=100, verbose_name='视频名')

@@ -1,5 +1,5 @@
 import xadmin
-from .models import Course, Section
+from .models import Course, Section,Knowledge_point
 
 
 class GlobalSettings:
@@ -23,6 +23,10 @@ class SectionAdmin(object):
     list_display = ['course', 'name', 'add_time','sign_num']
     search_fields = ['course', 'name']
     list_filter = ['course__name', 'name', 'add_time']
+class Knowledge_pointAdmin(object):
+    list_display = ['course', 'name', 'add_time','sign_num']
+    search_fields = ['course', 'name']
+    list_filter = ['course__name', 'name', 'add_time']
 
 #
 # class VideoAdmin(object):
@@ -39,6 +43,7 @@ class SectionAdmin(object):
 
 xadmin.site.register(Course, CourseAdmin)
 xadmin.site.register(Section, SectionAdmin)
+xadmin.site.register(Knowledge_point, Knowledge_pointAdmin)
 # xadmin.site.register(Video, VideoAdmin)
 # xadmin.site.register(CourseResource, CourseResourceAdmin)
 

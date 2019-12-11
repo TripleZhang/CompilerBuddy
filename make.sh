@@ -1,3 +1,3 @@
 cd $1
 make clean
-make
+make 2> error.log

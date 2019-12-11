@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 {% load  static %}
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title> EDUC</title>
+    <title> CompilerBuddy首页</title>
+    {#链接外部样式表#}
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -22,13 +26,13 @@
 
 
 <body>
+    {# 页面头部 #}
     <section class="headerwrap ">
         <header>
             <div class=" header">
                 <div class="top">
                     <div class="wp">
                         <div class="fl">
-                            <!-- <p>服务电话：<b>33333333</b></p> -->
                         </div>
                         <!--登录后跳转-->
 						{% if user.is_authenticated %}
@@ -65,36 +69,34 @@
 
                 <div class="middle">
                     <div class="wp">
-                        <a href="index.html"><img class="fl" src="{% static 'images/logo.png' %}" /></a>
-                        <div class="searchbox fr">
-                            <div class="selectContainer fl">
-                                <span class="selectOption" id="jsSelectOption" data-value="course">
-                                公开课
-                            </span>
-                                <ul class="selectMenu" id="jsSelectMenu">
-                                    <li data-value="course">公开课</li>
-                                    <li data-value="org">课程机构</li>
-                                    <li data-value="teacher">授课老师</li>
-                                </ul>
-                            </div>
-                            <input id="search_keywords" class="fl" type="text" value="" placeholder="请输入搜索内容" />
-                            <img class="search_btn fr" id="jsSearchBtn" src="{% static 'images/search_btn.png' %}" />
-                        </div>
+{#                        <a href="index.html"><img class="fl" src="{% static 'images/logo.png' %}" /></a>#}
+{#                        <div class="searchbox fr">#}
+{#                            <div class="selectContainer fl">#}
+{#                                <span class="selectOption" id="jsSelectOption" data-value="course">#}
+{#                                公开课#}
+{#                            </span>#}
+{#                                <ul class="selectMenu" id="jsSelectMenu">#}
+{#                                    <li data-value="course">公开课</li>#}
+{#                                    <li data-value="org">课程机构</li>#}
+{#                                    <li data-value="teacher">授课老师</li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                            <input id="search_keywords" class="fl" type="text" value="" placeholder="请输入搜索内容" />#}
+{#                            <img class="search_btn fr" id="jsSearchBtn" src="{% static 'images/search_btn.png' %}" />#}
+{#                        </div>#}
                     </div>
                 </div>
 
 
 
-
+                {#导航栏#}
                 <nav>
                     <div class="nav">
                         <div class="wp">
                             <ul>
                                 <li class="active"><a href="index.html">首页</a></li>
                                 <li>
-                                    <a href="course-list.html">
-									教程<img class="hot" src="{% static 'images/nav_hot.png' %}">
-								</a>
+                                    <a href="course-list.html">教程</a>
                                 </li>
                                 <li>
                                     <a href="teachers-list.html">帮助</a>
@@ -109,60 +111,108 @@
         </header>
     </section>
 
-
-    <div class="banner">
-        <div class="wp">
-            <div class="fl">
-                <div class="imgslide">
-                    <ul class="imgs">
-
-                        <li>
-                            <a href="http://www.imooc.com">
-                                <img width="1200" height="478" src="static/media/banner/2016/11/57a801860001c34b12000460.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="static/media/banner/2016/11/57a801860001c34b12000460_z4Vb8zl.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460_nMwvoQD.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460_GXIBATC.jpg" />
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </div>
-                <div class="unslider-arrow prev"></div>
-                <div class="unslider-arrow next"></div>
-            </div>
-
-        </div>
+{#      页眉部分  #}
+{#    <header>#}
+{#        <div class="top-box white-backgroud">#}
+{#            <div class="navigator-box">#}
+{#                <p class="fl">CompilerBuddy, 基于Tiger语言的编译原理教学平台！</p>#}
+{#                <ul class="fr navigator-bar">#}
+{#                    <li><a href="test.html">教程</a></li>#}
+{#                    <li><a href="test.html">帮助</a></li>#}
+{#                    <li><a href="test.html">联系我们</a></li>#}
+{#                </ul>#}
+{#                <div class="wp">#}
+{#                <!--登录后跳转-->#}
+{#						{% if user.is_authenticated %}#}
+{#                            <div class="personal">#}
+{#                                <dl class="user fr">#}
+{#                                    <dd>{% if user.nick_name %}{{ user.nick_name }}{% else %}{{ user.username }}{% endif %}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>#}
+{#                                    <dt><img width="20" height="20" src="{{ user.image.url }}"/></dt>#}
+{#                                </dl>#}
+{#                                <div class="userdetail">#}
+{#                                    <dl>#}
+{#                                        <dt><img width="80" height="80" src="{{ user.image.url }}"/></dt>#}
+{#                                        <dd>#}
+{#                                            <h2>{{ user.nick_name }}</h2>#}
+{#                                            <p>{{ user.username }}</p>#}
+{#                                        </dd>#}
+{#                                    </dl>#}
+{#                                    <div class="btn">#}
+{#                                        <a class="personcenter fl" href="{% url 'users:info' %}">进入个人中心</a>#}
+{#                                        <a class="fr" href="{% url 'logout' %}">退出</a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            {% else %}#}
+{#                            <a style="color:white" class="fr registerbtn" href="{% url 'register' %}">注册</a>#}
+{#                            <a style="color:white" class="fr loginbtn" href="{% url 'login' %}">登录</a>#}
+{#                        {% endif %}#}
+{#                </div>>#}
+{#            </div>#}
+{#        </div>#}
+{#    </header>#}
 
 
-    </div>
+{#    <div class="banner">#}
+{#        <div class="wp">#}
+{#            <div class="fl">#}
+{#                <div class="imgslide">#}
+{#                    <ul class="imgs">#}
+{##}
+{#                        <li>#}
+{#                            <a href="http://www.imooc.com">#}
+{#                                <img width="1200" height="478" src="static/media/banner/2016/11/57a801860001c34b12000460.jpg" />#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a href="http://www.projectsedu.com">#}
+{#                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460.jpg" />#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a href="http://www.projectsedu.com">#}
+{#                                <img width="1200" height="478" src="static/media/banner/2016/11/57a801860001c34b12000460_z4Vb8zl.jpg" />#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a href="http://www.projectsedu.com">#}
+{#                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460_nMwvoQD.jpg" />#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a href="http://www.projectsedu.com">#}
+{#                                <img width="1200" height="478" src="static/media/banner/2016/11/57aa86a0000145c512000460_GXIBATC.jpg" />#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{##}
+{#                    </ul>#}
+{#                </div>#}
+{#                <div class="unslider-arrow prev"></div>#}
+{#                <div class="unslider-arrow next"></div>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{##}
+{#    </div>#}
 
-
-
-
+    {#  页面中间图片  #}
     <section>
-        <div class="wp">
+        <div class="middle-box">
+            {#  tiger map图片  #}
+                <img  src="/static/images/tiger-map.png" alt=""/>
+        </div>
+    </section>
+
+
+
+    <section style="margin: 0 auto; text-align:center;">
+        <div class="course_box">
             <div class="list" style="margin-top:0;">
                 <div class="left layout">
                     <!-- <h1>课程</h1> -->
@@ -170,190 +220,171 @@
                         <div class="tab_cont " id="content">
                             <div class="group_list">
 
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">绪论</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">词法分析</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">语法分析</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">抽象语法</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">语义分析</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">活动记录</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-
-
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">翻译成中间代码</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-
-
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">基本块和轨迹</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
                                     </div>
                                 </div>
 
-
-                                <div class="box">
+                                <div class="box middle-box">
                                     <a href="course-detail.html">
-                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/词法分析.png' %}" />
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
                                     </a>
                                     <div class="des">
                                         <a href="course-detail.html">
-                                            <h2>语法分析</h2>
+                                            <h2 class="course">指令选择</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
                                         </a>
-                                        <span class="fl">时长：<i class="key">30</i></span>
-                                        <span class="fr">学习人数：2&nbsp;&nbsp;</span>
                                     </div>
-                                    <div class="bottom">
-                                        <a href="course-detail.html"><span class="fl">来自XX老师</span></a>
-                                        <span class="star fr  notlogin
-                                        " data-favid="15">
-1
-                                    </span>
+                                </div>
+
+                                <div class="box middle-box">
+                                    <a href="course-detail.html">
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
+                                    </a>
+                                    <div class="des">
+                                        <a href="course-detail.html">
+                                            <h2 class="course">活跃分析</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="box middle-box">
+                                    <a href="course-detail.html">
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
+                                    </a>
+                                    <div class="des">
+                                        <a href="course-detail.html">
+                                            <h2 class="course">寄存器分配</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="box middle-box">
+                                    <a href="course-detail.html">
+                                        <img width="200" height="350" class="scrollLoading" src="{% static 'images/CAS.jpeg' %}" />
+                                    </a>
+                                    <div class="des">
+                                        <a href="course-detail.html">
+                                            <h2 class="course">整合为一体</h2>
+                                            <p class="course_abstract">
+                                                为直线程序设计语言实现一个简单的程序分析器和解释器。
+                                            </p>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -369,68 +400,13 @@
 
 
 
-
-
-    <section>
-        <div class="wp">
-            <ul class="feature">
-                <li class="feature1">
-                    <img class="pic" src="{% static 'images/feature1.png' %}" />
-                    <p class="center">专业权威</p>
-                </li>
-                <li class="feature2">
-                    <img class="pic" src="{% static 'images/feature2.png' %}" />
-                    <p class="center">课程最新</p>
-                </li>
-                <li class="feature3">
-                    <img class="pic" src="{% static 'images/feature3.png' %}" />
-                    <p class="center">名师授课</p>
-                </li>
-                <li class="feature4">
-                    <img class="pic" src="{% static 'images/feature4.png' %}" />
-                    <p class="center">数据真实</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!--feature end-->
-
-
-
     <footer>
-        <div class="footer">
-            <!-- <div class="wp">
-                <ul class="cont">
-                    <li class="logo">
-                        <a href=""><img src="{% static 'images/footlogo.png' %}" /></a>
-                    </li>
-                    <li class="code"><img src="{% static 'images/code.jpg' %}" />
-                        <p class="center">扫描关注微信</p>
-                    </li>
-                    <li class="third"><img class="fl" src="{% static 'images/tell.png' %}" />
-                        <p class="tell">33333333</p>
-                        <p class="time">周一至周日 9:00-18:00</p>
-                    </li>
-                </ul>
-
-            </div> -->
-            <p class="line"></p>
-            <div class="wp clear">
-                <span class="fl"> 2019 www.projectsedu.com EDUC 保留所有权利</span>
-                <span class="fr">copyright  2019 ICP备案证书号：京ICP备xxxxx号-1</span>
+        <div class="index_footer">
+            <div style="text-align: center">
+                <p style="color: #FFFFFF; padding: 15px"> UCAS TRIPLEZHANG 保留所有权利</p>
             </div>
         </div>
     </footer>
-
-    <section>
-        <ul class="sidebar">
-            <li class="qq">
-                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2023525077&site=qq&menu=yes"></a>
-            </li>
-            <li class="totop"></li>
-        </ul>
-    </section>
-    <div><textarea name="editor" id="editor">Mditor example</textarea></div>
 
     <script src="{% static 'js/selectUi.js' %}" type='text/javascript'></script>
     <script src="{% static 'js/deco-common.js' %}" type='text/javascript'></script>

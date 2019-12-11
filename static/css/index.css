@@ -1,0 +1,95 @@
+/*白色背景*/
+.white-backgroud{
+    background: #FFFFFF;
+}
+
+/*顶部box*/
+.top-box{
+    width:100%;
+    min-width: 1190px;
+    overflow:hidden;
+}
+
+/*导航栏box*/
+.navigator-box{
+    width:1024px;
+    height:30px;
+    line-height:38px;
+    margin:10px auto;
+    font-size:16px;
+    color:#666;
+}
+
+/*导航栏内容*/
+.navigator-bar > li{
+    float:left;
+    padding:0 26px;
+    border-right:1px solid #eaeaea;
+}
+
+.navigator-bar > li > a{
+    color:#666;
+}
+
+/*分割线*/
+.split-line{
+    margin:10px auto;
+    height:1px;
+    border:none;
+    border-top:1px solid #0073bb;
+}
+
+/*tigermap图片*/
+img {
+    border:0;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+
+    /*padding:0;*/
+    max-width:1000px;
+    width:expression(this.width>1000?"1000px":this.width);
+    max-height:800px;
+    height:expression(this.height>1000?"1000px":this.height);
+}
+
+/*中间图片和登陆框的box*/
+.middle-box{
+    width:100%;
+    margin:20px auto;
+    text-align: center;
+}
+
+.course {
+    padding: 15px 0;
+    text-align:center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #708090;
+}
+
+.course_abstract {
+    /*padding: 5px 0;*/
+    text-align:center;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    color: #708090;
+}
+
+.course_box {
+    width:900px;
+    height: 1350px;
+    margin: auto;
+    text-align:center;
+    border: 1px solid lightgrey;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*position:relative;*/
+    /*clear: both;*/
+}
+
+.index_footer{
+    height: 50px;
+    background: #000000;
+    font-size:12px;
+    margin-top:15px
+}

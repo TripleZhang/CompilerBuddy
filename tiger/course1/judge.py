@@ -1,17 +1,19 @@
 from Compiler_teaching_platform.settings import BASE_DIR
 import os
-
+import time
 def judge(dir):
     # dir = "./tiger/code"
     # 在指定文件目录make代码
     # os.system("ls")
     makePipline = os.popen("sh make.sh " + dir)
     # makeResult = makePipline.read()
+
     # 在指定文件目录执行可执行文件
+    time.sleep(0.5)
     pipline = os.popen("sh runtiger.sh " + dir)
     result = pipline.read()
     # make clean
-    os.system("sh clean.sh " + dir)
+    # os.system("sh clean.sh " + dir)
     # 判断是否结果是否正确
     if result == "1":
         return "Pass"

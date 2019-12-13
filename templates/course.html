@@ -130,7 +130,11 @@
                                         <input class="btn btn-danger readonly"
                                                 type=“button”
                                                 onclick="myreset('{{ file_name }}','{{ course.id }}')"
-                                                id="resetbutton" value="重置文件" >
+                                                id="resetbutton" value="重置当前文件" >
+                                        <input class="btn btn-danger readonly"
+                                                type=“button”
+                                                onclick="myresetall('{{ course.id }}')"
+                                                id="resetallbutton" value="重置所有文件" >
                                     </div>
 
                                 </div>
@@ -314,6 +318,36 @@
             },
         });
     }
+
+</script>
+<script>
+    function myresetall(course_id) {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{% url 'op:resetall' %}",
+            data: {'course_id': course_id},
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                if (data.status == 'fail') {
+                    if (data.msg == '用户未登录') {
+                        window.location.href = "{% url 'login' %}";
+                    } else {
+                        alert(data.msg)
+                    }
+                } else if (data.status == 'success') {
+                    {#$('#jsStayForm')[0].reset();#}
+                    {#$('#jsCompanyTips').html("");#}
+                    {#console.info('文件重置成功')#}
+                    alert("文件重置成功");
+                    window.location.reload();
+                }
+            },
+        });
+    }
 </script>
 
 <script>
@@ -341,7 +375,6 @@
             },
         });
     }
-
 </script>
 
 {#                    <script>#}

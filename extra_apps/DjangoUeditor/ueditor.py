@@ -5,9 +5,9 @@ __date__ = '2018/1/15 0015 08:11'
 
 
 import xadmin
-from xadmin.views import BaseAdminPlugin, CreateAdminView, ModelFormAdminView, UpdateAdminView
-from DjangoUeditor.models import UEditorField
-from DjangoUeditor.widgets import UEditorWidget
+from xadmin.views import BaseAdminPlugin, CreateAdminView, UpdateAdminView
+from extra_apps.DjangoUeditor.models import UEditorField
+from extra_apps.DjangoUeditor.widgets import UEditorWidget
 from django.conf import settings
 
 

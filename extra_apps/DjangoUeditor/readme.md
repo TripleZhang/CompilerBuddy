@@ -89,7 +89,7 @@ if self._upload_settings.get("filePathFormat", None):
     
 
 ```python
-from DjangoUeditor.models import UEditorField
+from extra_apps.DjangoUeditor.models import UEditorField
     class Blog(models.Model):
         Name=models.CharField(,max_length=100,blank=True)
         Content=UEditorField(u'内容   ',width=600, height=300, toolbars="full", imagePath="", filePath="", upload_settings={"imageMaxSize":1204000},
@@ -221,7 +221,7 @@ class TestUeditorModelForm(forms.ModelForm):
     
 
 ```python
-from  DjangoUeditor.forms import UEditorField
+from  extra_apps.DjangoUeditor.forms import UEditorField
     class TestUEditorForm(forms.Form):
         Description=UEditorField("描述",initial="abc",width=600,height=800)
 ```
@@ -231,7 +231,7 @@ from  DjangoUeditor.forms import UEditorField
     
 
 ```python
-from  DjangoUeditor.widgets import UEditorWidget
+from  extra_apps.DjangoUeditor.widgets import UEditorWidget
     class TestUEditorForm(forms.Form):
         Content=forms.CharField(label="内容",widget=UEditorWidget(width=800,height=500, imagePath='aa', filePath='bb',toolbars={}))
 ```
@@ -241,7 +241,7 @@ from  DjangoUeditor.widgets import UEditorWidget
     说明 关于第一种方法，需要在代码中建立相应的类（比如就在views.py中），并且需要在views.py渲染视图的时候返回到模板（template）中，对于上面的代码，具体使用可能如下（在views.py中）：
 
 ```python
-    from DjangoUeditor.forms import UEditorField class TestUEditorForm(forms.Form):
+    from extra_apps.DjangoUeditor.forms import UEditorField class TestUEditorForm(forms.Form):
         Description=UEditorField("描述",initial="abc",width=600,height=800)
 
     def edit_description_view(request):
@@ -330,7 +330,7 @@ from  DjangoUeditor.widgets import UEditorWidget
   n
 
 ```python
-    from  DjangoUeditor.forms import UEditorModelForm
+    from  extra_apps.DjangoUeditor.forms import UEditorModelForm
       class UEditorTestModelForm(UEditorModelForm):
             class Meta:
                 model=Blog

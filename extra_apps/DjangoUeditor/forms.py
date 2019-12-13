@@ -2,7 +2,7 @@
 
 from django import forms
 from widgets import UEditorWidget
-from DjangoUeditor.models import UEditorField as ModelUEditorField
+from extra_apps.DjangoUeditor.models import UEditorField as ModelUEditorField
 
 
 class UEditorField(forms.CharField):

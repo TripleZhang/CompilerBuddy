@@ -198,7 +198,7 @@ class UEditorWidget(forms.Textarea):
             'MEDIA_URL': settings.MEDIA_URL,
             'MEDIA_ROOT': settings.MEDIA_ROOT
         }
-        return mark_safe(render_to_string('ueditor.html', context))
+        return mark_safe(render_to_string('templates/ueditor.html', context))
 
     class Media:
         js = ("ueditor/ueditor.config.js",

@@ -59,7 +59,7 @@
                     {% csrf_token %}
                     </form>
                 </div>
-                <p class="form-p">已有账号？<a href="http://192.168.43.243:8000/login/">[立即登录]</a></p>
+                <p class="form-p">已有账号？<a href="{% url 'login' %}">[立即登录]</a></p>
                 <p>
                     <a class="return-index" href="/">回到首页</a>
                 </p>

@@ -176,4 +176,144 @@ img {
     color:#00A000;
 }
 
+.verify-code{
+    float:left;
+    width:180px;;
+}
+.verify-code > input{
+    width:150px;
+}
+
+.test-btn{
+    float:left;
+    width: 80%;
+
+}
+
+
+/*发送验证码按钮*/
+.verify-code-btn{
+    float:left;
+    width:103px;
+    margin-left:3px;
+    height:38px;
+    line-height:38px;
+    border:1px solid #dedede;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background:#f5f5f5;
+    color:#666;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+/*.form-group .captcha{*/
+/*    cursor: pointer;*/
+/*    float: right;*/
+/*}*/
+
+/*高亮输入框*/
+.form-box .form-group.focus,
+.form-box .valcode.error {
+    border-color: #0073bb;
+    box-shadow: 0 0 5px #0073bb;
+}
+.form-box .form-group.blur,
+.form-box  .valcode.blur,
+.form-box  .captcha-input.blur {
+    border-color: #ccc;
+}
+.form-box .form-group.errorput,
+.form-box .valcode.errorput input {
+    border-color: #f00;
+    box-shadow: 0 0 5px #aa0b0b;
+}
+
+/*登陆模块box*/
+.form-box{
+    position:relative;
+    width:290px;
+    height: 472px;
+    padding:0 40px;
+    background:#fff;
+    color:#666;
+}
+.form-box > h2,
+.form-box > .tab{
+    height:54px;
+    line-height:54px;
+    margin-bottom:34px;
+    font-size:18px;
+    font-weight:normal;
+    color:#333;
+    border-bottom:1px solid #eaeaea;
+}
+.form-box > .tab > h2{
+    float:left;
+    width:90px;
+    height:53px;
+    line-height:53px;
+    cursor: pointer;
+    font-weight:normal;
+    text-align:center;
+}
+.form-box > .tab > h2.active{
+     border-bottom:3px solid #0073bb;
+    color:#333;
+}
+
+/*验证码*/
+#id_captcha_1 {
+    width: 178px;
+}
+
+#form1 input{
+    width:270px;
+}
+#form2 input{
+    width:170px;
+}
+
+.captcha1 > input{
+     width:80px;
+}
+
+.captcha1 > img{
+    float:right;
+    margin-top:5px;
+}
+
+.form-group .mobile-register-captcha{
+    width:180px;
+}
+.form-group .captcha{
+    cursor: pointer;
+    float: right;
+}
+
+.captcha-input > input {
+    position:relative;
+    width:160px;
+    height:38px;
+    border:1px solid #dedede;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    overflow:hidden;
+}
+
+
+.captcha-input > img {
+    float:right;
+    margin-top:0px;
+}
+
+/*.captcha-input.focus {*/
+/*    !*border-color: #0073bb;*!*/
+/*    width:100px;*/
+/*    height:38px;*/
+/*    box-shadow: 0 0 10px #0073bb;*/
 

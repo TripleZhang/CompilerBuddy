@@ -44,33 +44,13 @@ class ResetAllView(View):
         if copy_files2(original_file_path,save_file_path):
             return JsonResponse({
                 'status': 'success',
-                'msg': '重置成功',
+                'msg': '所有文件重置成功',
             })
         else:
             return JsonResponse({
                 'status': 'fail',
                 'msg': '重置失败！表单格式错误',
             })
-
-    def reset_file(self, reset_file_path, original_file_path):
-        reset_file_path = BASE_DIR + reset_file_path
-        try:
-            ft = open(original_file_path, 'r')
-            content = ft.read()
-            ft.close()
-        except IOError:
-            print('源文件打开失败，%s文件不存在' % original_file_path)
-            return 0
-        try:
-            fp = open(reset_file_path, 'w')
-            fp.seek(0)
-            fp.truncate()
-            fp.write(content)
-            fp.close()
-        except IOError:
-            print('文件打开失败，%s文件不存在' % reset_file_path)
-            return 0
-        return 1
 
 class ResetView(View):
     def post(self, request, *args, **kwargs):
@@ -90,7 +70,7 @@ class ResetView(View):
             if self.reset_file(save_file_path, original_file_path):
                 return JsonResponse({
                     'status': 'success',
-                    'msg': '重置成功',
+                    'msg': '当前文件重置成功',
                 })
             else:
                 return JsonResponse({

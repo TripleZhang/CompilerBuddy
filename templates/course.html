@@ -155,7 +155,7 @@
 
             <div style="text-align:center">
 
-                <button type="button" id="runbutton" class="btn btn-primary">
+                <button type="button" id="runbutton" onclick="my_run('{{ course.id }}')" class="btn btn-primary">
                     运行
                 </button>
                 <p class="error company-tips" id="SucessRunTips"></p>
@@ -297,6 +297,34 @@
             run($(this), {{ course.id }});
         });
     });
+</script>
+<script>
+    function my_run(course_id) {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{% url 'op:run' %}",
+            data: {'course_id': course_id},
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                if (data.status == 'fail') {
+                    if (data.msg == '用户未登录') {
+                        window.location.href = "{% url 'login' %}";
+                    } else {
+                        alert(data.msg)
+                    }
+                } else if (data.status == 'success') {
+                    {#current_elem.text(data.msg)#}
+                    $('#SucessRunTips').html(data.msg)
+                    {#alert(data.msg)#}
+
+                }
+            },
+        });
+    }
 </script>
 <script>
     function myreset(file_name, course_id) {

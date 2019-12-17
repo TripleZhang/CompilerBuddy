@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'Compiler_teaching',
         'USER': 'root',
         'PASSWORD': 'Admin123',
-        'HOST':'localhost',
+        'HOST':'49.235.4.80',
         'PORT':'3306',
 
 

@@ -9,7 +9,7 @@ def judge(dir):
     # makeResult = makePipline.read()
 
     # 在指定文件目录执行可执行文件
-    time.sleep(0.5)
+    time.sleep(1)
     pipline = os.popen("sh runtiger.sh " + dir)
     result = pipline.read()
     # make clean

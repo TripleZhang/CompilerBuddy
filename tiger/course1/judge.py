@@ -23,6 +23,7 @@ def judge(dir):
             makeResult = errorfile.read()
         finally:
             errorfile.close()
+        makeResult = makeResult + '\n 验证失败!'
         return makeResult
 
 if __name__ == '__main__':
